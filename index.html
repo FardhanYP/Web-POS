@@ -1,217 +1,33 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Meulaboh Premium</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- ====== NAVIGASI BAR ====== -->
-    <nav id="navbar">
-      <div
-        class="nav-brand"
-        style="display: flex; align-items: center; gap: 10px"
-      >
-        <img
-          src="logo.jpeg"
-          alt="Logo"
-          style="height: 30px; border-radius: 50%"
-        />
-        MEULABOH PREMIUM
-      </div>
-      <div class="nav-menu">
-        <button class="nav-link aktif" data-target="beranda">Beranda</button>
-        <button class="nav-link" data-target="minuman">Minuman</button>
-        <button class="nav-link" data-target="makanan">Makanan</button>
-        <button class="nav-link" data-target="keranjang">
-          Keranjang
-          <span id="notif-keranjang" class="notif-bubble" style="display: none"
-            >0</span
-          >
-        </button>
-      </div>
-    </nav>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Kasir - KITAkasir</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="halaman-login">
 
-    <main id="konten-utama">
-      <!-- ====== HALAMAN BERANDA ====== -->
-      <section id="halaman-beranda" class="halaman aktif">
-        <div class="hero">
-          <img
-            src="logo.jpeg"
-            alt="Logo Warkop"
-            style="
-              width: 200px;
-              height: 190px;
-              object-fit: cover;
-              border-radius: 50%;
-              margin-bottom: 20px;
-              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            "
-          />
-          <h1>Selamat Datang di Meulaboh Premium</h1>
-        </div>
+  <div class="login-card">
+    <h1>KITAkasir</h1>
+    <p class="sub-judul">Silakan login untuk mulai bekerja</p>
 
-        <div class="section-title">
-          <h2>🔥 Best Seller Minggu Ini</h2>
-        </div>
-
-              <!-- Best Seller Sesuai Permintaan -->
-      <div class="best-seller-grid">
-        
-        <!-- Nasi Uduk Ayam Bakar -->
-        <div class="kartu-best" data-nama="Nasi Uduk Ayam Bakar" data-harga="25000">
-          <h3>Nasi Uduk Ayam Bakar</h3>
-          <p>Rp 25.000</p>
-          <span class="badge">Best Seller</span>
-          <button class="tombol-tambah-best">Tambah</button>
-        </div>
-
-        <!-- Teh Tarek Dingin -->
-        <div class="kartu-best" data-nama="Teh Tarek Dingin" data-harga="20000">
-          <h3>Teh Tarek Dingin</h3>
-          <p>Rp 20.000</p>
-          <span class="badge">Favorit</span>
-          <button class="tombol-tambah-best">Tambah</button>
-        </div>
-
-        <!-- Teh Tarek Hijau Dingin -->
-        <div class="kartu-best" data-nama="Teh Tarek Hijau Dingin" data-harga="23000">
-          <h3>Teh Tarek Hijau Dingin</h3>
-          <p>Rp 23.000</p>
-          <span class="badge">Paling Laris</span>
-          <button class="tombol-tambah-best">Tambah</button>
-        </div>
-
-        <!-- BMW Kopi Panas -->
-        <div class="kartu-best" data-nama="Bmw Kopi Panas" data-harga="17000">
-          <h3>BMW Kopi Panas</h3>
-          <p>Rp 17.000</p>
-          <span class="badge">Rekomendasi</span>
-          <button class="tombol-tambah-best">Tambah</button>
-        </div>
-
-        <!-- BMW Teh Panas -->
-        <div class="kartu-best" data-nama="Bmw Teh Panas" data-harga="17000">
-          <h3>BMW Teh Panas</h3>
-          <p>Rp 17.000</p>
-          <span class="badge">Rekomendasi</span>
-          <button class="tombol-tambah-best">Tambah</button>
-        </div>
-
-        <!-- BMW Teh Hijau Panas -->
-        <div class="kartu-best" data-nama="Bmw Teh Hijau Panas" data-harga="18000">
-          <h3>BMW Teh Hijau Panas</h3>
-          <p>Rp 18.000</p>
-          <span class="badge">Rekomendasi</span>
-          <button class="tombol-tambah-best">Tambah</button>
-        </div>
-
-        <!-- BMW Milo Panas -->
-        <div class="kartu-best" data-nama="Bmw Milo Panas" data-harga="18000">
-          <h3>BMW Milo Panas</h3>
-          <p>Rp 18.000</p>
-          <span class="badge">Rekomendasi</span>
-          <button class="tombol-tambah-best">Tambah</button>
-        </div>
-
+    <form id="form-login">
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Masukkan username" required>
       </div>
 
-      <!-- ====== HALAMAN MINUMAN ====== -->
-      <section id="halaman-minuman" class="halaman">
-        <h1>Menu Minuman</h1>
-        <p style="text-align: center; color: #888; margin-bottom: 20px">
-          Pilih minuman favoritmu!
-        </p>
-
-        <div id="kontrol-menu">
-          <input type="text" id="input-cari" placeholder="🔍 Cari minuman..." />
-          <div id="tombol-kategori"></div>
-        </div>
-
-        <div id="daftar-menu"></div>
-      </section>
-
-      <!-- ====== HALAMAN MAKANAN ====== -->
-      <section id="halaman-makanan" class="halaman">
-        <h1>Menu Makanan</h1>
-        <p style="text-align: center; color: #888; margin-bottom: 20px">
-          Pilih makanan favoritmu!
-        </p>
-
-        <div id="kontrol-makanan">
-          <input
-            type="text"
-            id="input-cari-makanan"
-            placeholder="🔍 Cari makanan..."
-          />
-          <div id="tombol-kategori-makanan"></div>
-        </div>
-
-        <!-- Wadah daftar makanan -->
-        <div id="daftar-makanan"></div>
-      </section>
-
-      <!-- ====== HALAMAN KERANJANG ====== -->
-      <section id="halaman-keranjang" class="halaman">
-        <h1>Keranjang & Pembayaran</h1>
-
-        <!-- Panel keranjang lama dipindah ke sini -->
-        <div id="keranjang">
-          <h2>Pesanan Kamu</h2>
-          <div id="isi-keranjang">
-            <p class="kosong">Belum ada pesanan</p>
-          </div>
-          <div id="total-baris">
-            <strong>Total:</strong>
-            <strong id="total-harga">Rp 0</strong>
-          </div>
-          <button id="tombol-checkout">Lanjut ke Pembayaran</button>
-        </div>
-      </section>
-    </main>
-
-    <!-- ====== MODAL FORM PEMESAN ====== -->
-    <div id="modal-pemesan" class="modal-sembunyi">
-      <div class="modal-box">
-        <h2>📋 Data Pemesan</h2>
-
-        <label>Nama</label>
-        <input type="text" id="input-nama" placeholder="Nama kamu" />
-
-        <label>No Meja / Alamat</label>
-        <input
-          type="text"
-          id="input-alamat"
-          placeholder="Contoh: Meja 5 / Jl. Merdeka No. 10"
-        />
-
-        <label>Catatan (opsional)</label>
-        <textarea
-          id="input-catatan"
-          placeholder="Contoh: esnya dikit"
-        ></textarea>
-
-        <p id="pesan-error"></p>
-
-        <div class="modal-tombol">
-          <button id="tombol-batal">Batal</button>
-          <button id="tombol-kirim">Kirim Pesanan</button>
-        </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Masukkan password" required>
       </div>
-    </div>
 
-    <!-- ====== MODAL STRUK ====== -->
-    <div id="modal-struk" class="modal-sembunyi">
-      <div class="struk-box">
-        <div id="isi-struk"></div>
-        <div class="struk-tombol">
-          <button id="tombol-tutup-struk">Tutup</button>
-          <button id="tombol-print">🖨️ Cetak Struk</button>
-        </div>
-      </div>
-    </div>
+      <button type="submit" id="tombol-login">Masuk ke Kasir</button>
+      <p id="pesan-error" class="pesan-error"></p>
+    </form>
+  </div>
 
-    <script src="script.js"></script>
-  </body>
+  <script src="script.js"></script>
+</body>
 </html>
