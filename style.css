@@ -1,730 +1,96 @@
-/* ====== DASAR ====== */
+/* ====== RESET DASAR ====== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: #f5f0e8;      /* warna krem lembut */
-  color: #333;
-  padding: 30px 20px;
-}
-
-h1 {
-  text-align: center;
-  color: #6b4226;           /* coklat kopi */
-  margin-bottom: 8px;
-  font-size: 32px;
-}
-
-body > p {
-  text-align: center;
-  color: #888;
-  margin-bottom: 30px;
-}
-
-/* ====== KOTAK BESAR MENU ====== */
-#daftar-menu {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-  max-width: 1000px;
-  margin: 0 auto;           /* biar ke tengah */
-}
-
-/* ====== KARTU MINUMAN ====== */
-.kartu-minuman {
-  background: #fff;
-  border-radius: 14px;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.kartu-minuman:hover {
-  transform: translateY(-5px);          /* naik dikit pas di-hover */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.kartu-minuman h3 {
-  color: #6b4226;
-  margin-bottom: 8px;
-  font-size: 18px;
-}
-
-.kartu-minuman p {
-  color: #e67e22;           /* oranye harga */
-  font-weight: bold;
-  font-size: 16px;
-  margin-bottom: 14px;
-}
-
-/* ====== TOMBOL ====== */
-.kartu-minuman button {
-  background: #e67e22;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 20px;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.2s;
-  width: 100%;
-}
-
-.kartu-minuman button:hover {
-  background: #d35400;      /* lebih gelap pas di-hover */
-}
-
-.kartu-minuman button:active {
-  transform: scale(0.97);   /* efek ditekan */
-}
-
-/* ====== PANEL KERANJANG ====== */
-#keranjang {
-  background: #fff;
-  border-radius: 14px;
-  padding: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-}
-
-#keranjang h2 {
-  color: #6b4226;
-  font-size: 20px;
-  margin-bottom: 14px;
-  border-bottom: 2px solid #f5f0e8;
-  padding-bottom: 10px;
-}
-
-.kosong {
-  color: #aaa;
-  font-style: italic;
-  text-align: center;
-  padding: 20px 0;
-  font-size: 14px;
-}
-
-.item-keranjang {
+/* ====== BACKGROUND HALAMAN LOGIN ====== */
+.halaman-login {
+  background-color: #f5f0e8; /* Warna krem lembut */
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid #eee;
-  font-size: 14px;
-}
-
-.item-keranjang .info {
-  flex: 1;
-}
-
-.item-keranjang .nama {
-  font-weight: bold;
-  color: #333;
-}
-
-.item-keranjang .harga {
-  color: #888;
-  font-size: 12px;
-}
-
-.item-keranjang .atur {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.item-keranjang .atur button {
-  width: 24px;
-  height: 24px;
-  border: none;
-  border-radius: 6px;
-  background: #f5f0e8;
-  color: #6b4226;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.item-keranjang .atur button:hover {
-  background: #e67e22;
-  color: #fff;
-}
-
-.item-keranjang .atur span {
-  min-width: 18px;
-  text-align: center;
-  font-weight: bold;
-}
-
-#total-baris {
-  display: flex;
-  justify-content: space-between;
-  padding: 14px 0;
-  margin-top: 10px;
-  border-top: 2px solid #f5f0e8;
-  color: #6b4226;
-  font-size: 16px;
-}
-
-#tombol-checkout {
-  width: 100%;
-  background: #27ae60;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 12px;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-#tombol-checkout:hover {
-  background: #229954;
-}
-
-/* Biar menu gak ketutupan keranjang di layar kecil */
-@media (max-width: 700px) {
-  #keranjang {
-    position: static;
-    width: 100%;
-    margin-top: 30px;
-  }
-}
-
-/* ====== MODAL FORM PEMESAN ====== */
-.modal-sembunyi {
-  display: none;         /* default: sembunyi */
-}
-
-.modal-muncul {
-  display: flex;         /* kalau ada class ini, muncul */
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
-  z-index: 999;
-  padding: 20px;
+  min-height: 100vh;
 }
 
-.modal-box {
-  background: #fff;
-  border-radius: 14px;
-  padding: 24px;
+/* ====== KARTU LOGIN ====== */
+.login-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 400px;
-  max-height: 90vh;
-  overflow-y: auto;
-}
-
-.modal-box h2 {
-  color: #6b4226;
-  margin-bottom: 16px;
-  font-size: 20px;
-}
-
-.modal-box label {
-  display: block;
-  font-size: 13px;
-  font-weight: bold;
-  color: #6b4226;
-  margin-bottom: 4px;
-  margin-top: 12px;
-}
-
-.modal-box input,
-.modal-box textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 14px;
-  font-family: inherit;
-}
-
-.modal-box input:focus,
-.modal-box textarea:focus {
-  outline: none;
-  border-color: #e67e22;
-}
-
-.modal-box textarea {
-  resize: vertical;
-  min-height: 60px;
-}
-
-#pesan-error {
-  color: #e74c3c;
-  font-size: 13px;
-  margin-top: 10px;
-  min-height: 18px;
-}
-
-.modal-tombol {
-  display: flex;
-  gap: 10px;
-  margin-top: 18px;
-}
-
-.modal-tombol button {
-  flex: 1;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-#tombol-batal {
-  background: #eee;
-  color: #666;
-}
-
-#tombol-batal:hover {
-  background: #ddd;
-}
-
-#tombol-kirim {
-  background: #27ae60;
-  color: #fff;
-}
-
-#tombol-kirim:hover {
-  background: #229954;
-}
-
-@media (min-width: 901px) {
-  #daftar-menu {
-    margin-right: 340px;   /* Kasih ruang buat keranjang */
-    max-width: 700px;      /* Menu-nya jangan terlalu lebar */
-  }
-}
-
-/* ====== KOLOM PENCARIAN & KATEGORI ====== */
-#kontrol-menu {
-  max-width: 700px;
-  margin: 0 auto 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 0 10px;
-}
-
-#input-cari {
-  width: 100%;
-  padding: 14px 20px;
-  border: 2px solid #e0e0e0;
-  border-radius: 12px;
-  font-size: 16px;
-  font-family: inherit;
-  background: #fff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  transition: all 0.2s;
-  box-sizing: border-box; /* WAJIB! biar padding gak ngerusak lebar */
-}
-
-#input-cari:focus {
-  outline: none;
-  border-color: #e67e22;
-  box-shadow: 0 4px 15px rgba(230, 126, 34, 0.2);
-}
-
-#tombol-kategori {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto; /* biar bisa di-scroll ke samping kalau kepanjangan */
-  padding-bottom: 8px;
-}
-
-/* Bikin scrollbar-nya tipis & cantik */
-#tombol-kategori::-webkit-scrollbar {
-  height: 6px;
-}
-#tombol-kategori::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 4px;
-}
-
-.tombol-kategori {
-  white-space: nowrap;
-  padding: 10px 18px;
-  border: 1px solid #ddd;
-  border-radius: 25px;
-  background: #fff;
-  color: #666;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.tombol-kategori:hover {
-  border-color: #e67e22;
-  color: #e67e22;
-  transform: translateY(-2px);
-}
-
-.tombol-kategori.aktif {
-  background: #e67e22;
-  color: #fff;
-  border-color: #e67e22;
-  box-shadow: 0 4px 10px rgba(230, 126, 34, 0.3);
-}
-
-/* ====== MODAL STRUK ====== */
-.struk-box {
-  background: #fff;
-  border-radius: 14px;
-  padding: 24px;
-  width: 100%;
-  max-width: 380px;
-  max-height: 90vh;
-  overflow-y: auto;
-}
-
-#isi-struk {
-  font-family: 'Courier New', monospace;   /* font ala struk kasir */
-  color: #000;
-  font-size: 13px;
-  line-height: 1.5;
-}
-
-#isi-struk .header-struk {
   text-align: center;
-  margin-bottom: 12px;
 }
 
-#isi-struk .header-struk h2 {
-  font-size: 18px;
-  margin-bottom: 4px;
-  letter-spacing: 1px;
-}
-
-#isi-struk .header-struk p {
-  font-size: 11px;
-  color: #555;
-}
-
-#isi-struk .garis {
-  border-top: 1px dashed #999;
-  margin: 10px 0;
-}
-
-#isi-struk .info-pemesan p {
-  margin: 2px 0;
-}
-
-#isi-struk .item-struk {
-  display: flex;
-  justify-content: space-between;
-  margin: 4px 0;
-}
-
-#isi-struk .item-struk .nama-item {
-  flex: 1;
-}
-
-#isi-struk .item-struk .harga-item {
-  text-align: right;
-  white-space: nowrap;
-}
-
-#isi-struk .total-baris {
-  display: flex;
-  justify-content: space-between;
-  font-weight: bold;
-  font-size: 15px;
-  margin-top: 8px;
-}
-
-#isi-struk .footer-struk {
-  text-align: center;
-  margin-top: 14px;
-  font-size: 11px;
-  color: #555;
-}
-
-.struk-tombol {
-  display: flex;
-  gap: 10px;
-  margin-top: 18px;
-}
-
-.struk-tombol button {
-  flex: 1;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-#tombol-tutup-struk {
-  background: #eee;
-  color: #666;
-}
-
-#tombol-tutup-struk:hover {
-  background: #ddd;
-}
-
-#tombol-print {
-  background: #e67e22;
-  color: #fff;
-}
-
-#tombol-print:hover {
-  background: #d35400;
-}
-
-/* ====== PENGATURAN PAS DI-PRINT ====== */
-@media print {
-  body * {
-    visibility: hidden;      /* sembunyiin semua */
-  }
-  #modal-struk, #modal-struk * {
-    visibility: visible;     /* kecuali struknya */
-  }
-  #modal-struk {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: #fff;
-    display: block !important;
-  }
-  .struk-tombol {
-    display: none;           /* tombolnya gak usah ke-print */
-  }
-}
-
-/* ====== NAVIGASI BAR ====== */
-#navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #6b4226;
-  padding: 15px 20px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-}
-
-.nav-brand {
-  color: #fff;
-  font-size: 20px;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.nav-menu {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto; /* Biar bisa digeser di HP */
-}
-
-.nav-link {
-  background: transparent;
-  border: none;
-  color: #e0d0c0;
-  padding: 8px 16px;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 20px;
-  transition: all 0.3s;
-  white-space: nowrap;
-}
-
-.nav-link:hover {
-  color: #fff;
-  background: rgba(255,255,255,0.1);
-}
-
-.nav-link.aktif {
-  background: #e67e22;
-  color: #fff;
-}
-
-/* ====== SISTEM HALAMAN (NAVIGASI) ====== */
-.halaman {
-  display: none; /* Sembunyiin semua halaman */
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-.halaman.aktif {
-  display: block; /* Cuma nampilin halaman yang aktif */
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ====== STYLING BERANDA ====== */
-.hero {
-  text-align: center;
-  padding: 60px 20px;
-  background: #fff;
-  border-radius: 14px;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-.hero h1 {
-  font-size: 32px;
-  color: #6b4226;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  color: #666;
-  font-size: 16px;
-}
-
-.section-title h2 {
+.login-card h1 {
   color: #6b4226;
   font-size: 24px;
-  margin-bottom: 20px;
-  border-bottom: 3px solid #e67e22;
-  display: inline-block;
-  padding-bottom: 5px;
-}
-
-.best-seller-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-.kartu-best {
-  background: #fff;
-  border-radius: 14px;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  position: relative;
-}
-
-.kartu-best h3 {
-  color: #6b4226;
   margin-bottom: 8px;
 }
 
-.kartu-best p {
-  color: #e67e22;
-  font-weight: bold;
-  font-size: 18px;
+.sub-judul {
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 30px;
 }
 
-.badge {
-  position: absolute;
-  top: -10px;
-  right: 10px;
-  background: #e74c3c;
-  color: white;
-  padding: 4px 10px;
-  border-radius: 10px;
-  font-size: 11px;
-  font-weight: bold;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+/* ====== INPUT & LABEL ====== */
+.input-group {
+  text-align: left;
+  margin-bottom: 20px;
 }
 
-@media (max-width: 700px) {
-  #navbar {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .nav-menu {
-    width: 100%;
-    justify-content: flex-start;
-  }
+.input-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 8px;
 }
 
-/* ====== BUBBLE NOTIF KERANJANG ====== */
-.notif-bubble {
-  background: #e74c3c;
-  color: white;
-  font-size: 11px;
-  font-weight: bold;
-  padding: 2px 6px;
-  border-radius: 10px;
-  margin-left: 5px;
-  vertical-align: middle;
-  display: inline-block;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-/* ====== STYLING KONTROL MAKANAN (SAMA KAYAK MINUMAN) ====== */
-#kontrol-makanan {
-  max-width: 700px;
-  margin: 0 auto 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 0 10px;
-}
-
-#input-cari-makanan {
+.input-group input {
   width: 100%;
-  padding: 14px 20px;
-  border: 2px solid #e0e0e0;
-  border-radius: 12px;
+  padding: 14px 16px; /* Padding gede biar gampang diklik */
+  border: 2px solid #ddd;
+  border-radius: 10px;
   font-size: 16px;
-  font-family: inherit;
-  background: #fff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  transition: all 0.2s;
-  box-sizing: border-box;
+  transition: all 0.3s;
 }
 
-#input-cari-makanan:focus {
+.input-group input:focus {
   outline: none;
   border-color: #e67e22;
-  box-shadow: 0 4px 15px rgba(230, 126, 34, 0.2);
+  box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.2);
 }
 
-#tombol-kategori-makanan {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding-bottom: 8px;
-}
-
-#tombol-kategori-makanan::-webkit-scrollbar {
-  height: 6px;
-}
-#tombol-kategori-makanan::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 4px;
-}
-
-/* ====== TOMBOL BEST SELLER ====== */
-.tombol-tambah-best {
-  background: #e67e22;
+/* ====== TOMBOL LOGIN ====== */
+#tombol-login {
+  width: 100%;
+  padding: 16px; /* Tombol gede biar gampang ditekan */
+  background-color: #e67e22;
   color: #fff;
   border: none;
-  border-radius: 8px;
-  padding: 8px 16px;
-  font-size: 13px;
+  border-radius: 10px;
+  font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.2s;
-  margin-top: 15px;
-  width: 100%;
+  transition: background 0.3s;
+  margin-top: 10px;
 }
 
-.tombol-tambah-best:hover {
-  background: #d35400;
+#tombol-login:hover {
+  background-color: #d35400;
+}
+
+/* ====== PESAN ERROR ====== */
+.pesan-error {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: 15px;
+  font-weight: bold;
+  min-height: 20px;
 }
